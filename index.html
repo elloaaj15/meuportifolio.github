@@ -386,6 +386,189 @@
         .img-wrapper:hover::before { opacity: 1; }
         .img-wrapper:hover { border-color: var(--accent-primary); box-shadow: 0 20px 40px rgba(157, 78, 221, 0.2); }
 
+        /* --- VALORES & PLANOS --- */
+        .category-title {
+            text-align: center;
+            font-family: var(--font-design);
+            font-size: 1.8rem;
+            color: var(--accent-glow);
+            margin: 4rem 0 2rem;
+            font-weight: 600;
+            font-style: italic;
+        }
+        .category-title i { margin-right: 10px; font-size: 1.5rem; }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-card {
+            background: var(--bg-glass);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            padding: 35px 25px;
+            text-align: center;
+            transition: var(--transition-smooth);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-glow);
+            box-shadow: 0 15px 40px rgba(157, 78, 221, 0.2);
+        }
+
+        .pricing-card.popular {
+            border-color: var(--accent-primary);
+            background: rgba(157, 78, 221, 0.05);
+        }
+
+        .pricing-card.popular::before {
+            content: 'Mais Pedido';
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: var(--accent-gradient);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+
+        .pricing-header h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-glow);
+        }
+        
+        .pricing-header .diff {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .price {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        .price span {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--text-main);
+            display: block;
+            margin-top: 5px;
+            letter-spacing: -1px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+
+        .pricing-features li {
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .pricing-features li i {
+            color: var(--accent-glow);
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+
+        .pricing-note {
+            font-size: 0.8rem;
+            color: #ff9e00;
+            text-align: left;
+            margin-bottom: 25px;
+            padding: 10px;
+            background: rgba(255, 158, 0, 0.05);
+            border-left: 2px solid #ff9e00;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .btn-pricing {
+            display: inline-block;
+            width: 100%;
+            padding: 14px;
+            border-radius: 50px;
+            background: transparent;
+            border: 1px solid var(--accent-primary);
+            color: var(--text-main);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.75rem;
+            transition: var(--transition-bounce);
+            margin-top: auto;
+        }
+
+        .btn-pricing:hover, .pricing-card.popular .btn-pricing {
+            background: var(--accent-gradient);
+            border-color: transparent;
+            color: white;
+            box-shadow: 0 10px 25px rgba(157, 78, 221, 0.3);
+        }
+
+        /* Caixa de Extras */
+        .extras-box {
+            background: rgba(15, 8, 28, 0.6);
+            border: 1px dashed var(--accent-primary);
+            border-radius: 16px;
+            padding: 30px;
+            margin-top: 4rem;
+            backdrop-filter: blur(10px);
+        }
+        .extras-box h4 {
+            color: var(--text-main);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .extras-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        .extra-item {
+            background: rgba(255,255,255,0.05);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .extra-item span {
+            color: var(--accent-glow);
+            font-weight: 700;
+            margin-left: 5px;
+        }
+
         /* --- LIGHTBOX & NAVEGAÇÃO --- */
         .lightbox { 
             display: none; position: fixed; z-index: 99999; inset: 0; 
@@ -468,34 +651,32 @@
         }
 
         @media (max-width: 768px) {
-            /* Ajuste do header: não esconde os links, reorganiza para fluidez mobile */
             header { flex-direction: column; gap: 12px; padding: 15px 5%; background: rgba(6, 2, 12, 0.95); }
             header.scrolled { padding: 12px 5%; }
             .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.2rem; }
             
-            .hero { padding-top: 140px; } /* Compensa a altura extra do header reestruturado */
+            .hero { padding-top: 140px; } 
             .hero-title { font-size: 2.5rem; }
             .image-gallery { grid-template-columns: 1fr; }
             .case-study { padding: 25px 20px; border-radius: 16px; margin-bottom: 3rem; }
             .btn-contact { padding: 14px 30px; font-size: 0.9rem; width: 100%; max-width: 350px; justify-content: center; }
             
             .timeline-item { padding: 20px 15px; }
-            .timeline-item::after { left: -36px; width: 12px; height: 12px; } /* Ajustado para centralizar perfeitamente */
+            .timeline-item::after { left: -36px; width: 12px; height: 12px; } 
             .timeline { padding-left: 30px; margin-top: 2.5rem; }
             section { padding: 60px 0; }
             .marquee-content span { margin: 0 25px; }
             
-            /* Ajustes do Lightbox para usabilidade mobile */
             .close-lightbox { top: 15px; right: 15px; font-size: 32px; background: rgba(0,0,0,0.4); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
             .prev-lightbox, .next-lightbox { font-size: 24px; padding: 12px; background: rgba(0,0,0,0.3); border-radius: 50%; }
             .prev-lightbox { left: 10px; }
             .next-lightbox { right: 10px; }
             
             .social-links { gap: 1.5rem; }
+            .extras-list { flex-direction: column; text-align: center; }
         }
 
         @media (max-width: 480px) {
-            /* Micro-ajustes para telas bem pequenas (iPhone SE, etc) */
             .hero-title { font-size: 2.1rem; }
             .hero-subtitle { font-size: 0.95rem; }
             .section-title { font-size: 1.8rem; }
@@ -518,6 +699,7 @@
         <nav class="nav-links">
             <a href="#sobre">Sobre</a>
             <a href="#projetos">Projetos</a>
+            <a href="#valores">Valores</a>
             <a href="#contato">Contato</a>
         </nav>
     </header>
@@ -562,7 +744,7 @@
                     <img src="./imagens/eu.png" alt="Júlia Elloá" class="profile-img">
                 </div>
                 <div class="about-text reveal delay-1">
-                    <h2>Muito prazer,<br><span class="magic-word" style="font-size: clamp(1.8rem, 4vw, 2.8rem);">sou Júlia Elloá.</span></h2>
+                    <h2>Muito prazer,<br><span class="magic-word" style="font-size: clamp(1.8rem, 4vw, 2.8rem);">sou a Júlia Elloá.</span></h2>
                     <p>Formada Técnica em Informática pelo CEEP Lourdinha Guerra. Comecei minha jornada mergulhando na lógica estrutural, mas rapidamente percebi que a tecnologia exige estética para gerar uma conexão real com as pessoas.</p>
                     <p>Hoje, aplico minha visão analítica no desenvolvimento de código sólido e minha criatividade no design gráfico. Além disso, também atuo com <strong>ilustrações e desenhos digitais</strong>, entregando soluções que são tão bonitas quanto funcionais e estratégicas.</p>
                     
@@ -594,20 +776,11 @@
                         <h3>Fonte Santana x Carnatal</h3>
                         <p>Desenvolvimento da identidade visual exclusiva e diagramação técnica para os copos oficiais da Água Mineral Fonte Santana, material de destaque utilizado no Camarote Beats.</p>
                     </div>
-                    
                     <div class="image-gallery">
-                        <div class="img-wrapper reveal delay-1">
-                            <img src="./imagens/fonteecarna1.png" alt="Visão Geral Copo Fonte Santana">
-                        </div>
-                        <div class="img-wrapper reveal delay-2">
-                            <img src="./imagens/fonteecarna2.png" alt="Detalhe Design Copo">
-                        </div>
-                        <div class="img-wrapper reveal delay-1">
-                            <img src="./imagens/fonteecarna3.png" alt="Mockup Copo">
-                        </div>
-                        <div class="img-wrapper reveal delay-2">
-                            <img src="./imagens/fonteecarna5.png" alt="Detalhe Texto Copo">
-                        </div>
+                        <div class="img-wrapper reveal delay-1"><img src="./imagens/fonteecarna1.png" alt="Visão Geral Copo Fonte Santana"></div>
+                        <div class="img-wrapper reveal delay-2"><img src="./imagens/fonteecarna2.png" alt="Detalhe Design Copo"></div>
+                        <div class="img-wrapper reveal delay-1"><img src="./imagens/fonteecarna3.png" alt="Mockup Copo"></div>
+                        <div class="img-wrapper reveal delay-2"><img src="./imagens/fonteecarna5.png" alt="Detalhe Texto Copo"></div>
                     </div>
                 </article>
 
@@ -615,21 +788,13 @@
                     <div class="case-header">
                         <span class="case-category"><i class="fas fa-hashtag" style="margin-right: 8px;"></i> Social Media Strategy</span>
                         <h3>Fonte Santana (Institucional)</h3>
-                        <p>Direção de arte contínua e design estratégico de publicações para as redes sociais da marca, focando em engajamento e elevação da percepção de valor no ambiente digital, além disso participei da criação do rótulo da mesma.</p>
+                        <p>Direção de arte contínua e design estratégico de publicações para as redes sociais da marca, focando em engajamento e elevação da percepção de valor no ambiente digital.</p>
                     </div>
                     <div class="image-gallery">
-                        <div class="img-wrapper reveal delay-1">
-                            <img src="./imagens/posts.fonte.zip - 1.png" alt="Post Redes Sociais - Inauguração">
-                        </div>
-                        <div class="img-wrapper reveal delay-2">
-                            <img src="./imagens/posts.fonte.zip - 4.png" alt="Post Redes Sociais - Nossa Estrutura">
-                        </div>
-                        <div class="img-wrapper reveal delay-1">
-                            <img src="./imagens/posts.fonte.zip - 5.png" alt="Post Redes Sociais - Como Chegar">
-                        </div>
-                        <div class="img-wrapper reveal delay-2">
-                            <img src="./imagens/posts.fonte.zip - 7.png" alt="Post Redes Sociais - Chegou o Dia">
-                        </div>
+                        <div class="img-wrapper reveal delay-1"><img src="./imagens/posts.fonte.zip - 1.png" alt="Post Redes Sociais - Inauguração"></div>
+                        <div class="img-wrapper reveal delay-2"><img src="./imagens/posts.fonte.zip - 4.png" alt="Post Redes Sociais - Nossa Estrutura"></div>
+                        <div class="img-wrapper reveal delay-1"><img src="./imagens/posts.fonte.zip - 5.png" alt="Post Redes Sociais - Como Chegar"></div>
+                        <div class="img-wrapper reveal delay-2"><img src="./imagens/posts.fonte.zip - 7.png" alt="Post Redes Sociais - Chegou o Dia"></div>
                     </div>
                 </article>
 
@@ -640,24 +805,12 @@
                         <p>Estruturação técnica e codificação completa da plataforma da empresa. O projeto abrangeu desde a criação do site institucional responsivo e integração com mapas, até o desenvolvimento do fluxo de telas para o atendimento automatizado via WhatsApp.</p>
                     </div>
                     <div class="image-gallery">
-                        <div class="img-wrapper reveal delay-1">
-                            <img src="./imagens/image (1).png" alt="Protemix Home Page Banner">
-                        </div>
-                        <div class="img-wrapper reveal delay-2">
-                            <img src="./imagens/image (2).png" alt="Protemix Mapa de Localização">
-                        </div>
-                         <div class="img-wrapper reveal delay-1">
-                             <img src="./imagens/image (4).png" alt="Protemix Seção de Serviços">
-                        </div>
-                        <div class="img-wrapper reveal delay-2">
-                            <img src="./imagens/image (5).png" alt="Tela de Seleção de Serviços - Laudos">
-                        </div>
-                        <div class="img-wrapper reveal delay-1">
-                            <img src="./imagens/image (6).png" alt="Início do Fluxo WhatsApp">
-                        </div>
-                        <div class="img-wrapper reveal delay-2">
-                            <img src="./imagens/image (7).png" alt="Interface do Chatbot Protemix">
-                        </div>
+                        <div class="img-wrapper reveal delay-1"><img src="./imagens/image (1).png" alt="Protemix Home Page Banner"></div>
+                        <div class="img-wrapper reveal delay-2"><img src="./imagens/image (2).png" alt="Protemix Mapa de Localização"></div>
+                         <div class="img-wrapper reveal delay-1"><img src="./imagens/image (4).png" alt="Protemix Seção de Serviços"></div>
+                        <div class="img-wrapper reveal delay-2"><img src="./imagens/image (5).png" alt="Tela de Seleção de Serviços - Laudos"></div>
+                        <div class="img-wrapper reveal delay-1"><img src="./imagens/image (6).png" alt="Início do Fluxo WhatsApp"></div>
+                        <div class="img-wrapper reveal delay-2"><img src="./imagens/image (7).png" alt="Interface do Chatbot Protemix"></div>
                     </div>
                 </article>
 
@@ -665,17 +818,231 @@
                     <div class="case-header">
                         <span class="case-category"><i class="fas fa-home" style="margin-right: 8px;"></i> Identidade Visual & Design Arquitetônico</span>
                         <h3>Chalé Mar e Sol</h3>
-                        <p>Criação do posicionamento de marca para o Chalé em São Miguel do Gostoso. O projeto visual une sofisticação minimalista, hospitalidade calorosa e a estética praiana característica da região. Com um trabalho contínuo e estratégico, alcancei números incríveis de engajamento e alcance orgânico no perfil oficial da marca.</p>
+                        <p>Criação do posicionamento de marca para o Chalé em São Miguel do Gostoso. O projeto visual une sofisticação minimalista, hospitalidade calorosa e a estética praiana característica da região.</p>
                     </div>
                     <div class="image-gallery">
-                        <div class="img-wrapper reveal delay-1">
-                            <img src="./imagens/chale1.png" alt="Chalé Mar e Sol Vista 1">
-                        </div>
-                        <div class="img-wrapper reveal delay-2">
-                            <img src="./imagens/chale2.png" alt="Chalé Mar e Sol Vista 2">
-                        </div>
+                        <div class="img-wrapper reveal delay-1"><img src="./imagens/chale1.png" alt="Chalé Mar e Sol Vista 1"></div>
+                        <div class="img-wrapper reveal delay-2"><img src="./imagens/chale2.png" alt="Chalé Mar e Sol Vista 2"></div>
                     </div>
                 </article>
+            </div>
+        </section>
+
+        <section id="valores">
+            <div class="container">
+                <h2 class="section-title reveal">Planos & <span class="magic-word" style="font-size: inherit;">Valores</span></h2>
+
+                <h3 class="category-title reveal"><i class="fas fa-pen-nib"></i> Criação de Logo</h3>
+                <div class="pricing-grid">
+                    <div class="pricing-card reveal delay-1">
+                        <div class="pricing-header">
+                            <h4>Nível 1 — Simples</h4>
+                            <span class="diff">Ideal para pequenos negócios iniciantes</span>
+                            <p class="price">Por apenas <span>R$ 120</span></p>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> 1 proposta criativa</li>
+                            <li><i class="fas fa-check"></i> 2 revisões inclusas</li>
+                            <li><i class="fas fa-check"></i> Arquivos PNG e JPG</li>
+                        </ul>
+                        <div class="pricing-note">
+                            *Valor altera caso peça mais propostas, arquivos editáveis (SVG) ou estudo estratégico.
+                        </div>
+                        <a href="https://wa.me/5584994940214?text=Ol%C3%A1%20J%C3%BAlia!%20Tenho%20interesse%20na%20Cria%C3%A7%C3%A3o%20de%20Logo%20N%C3%ADvel%201%20(Simples)." target="_blank" class="btn-pricing">Selecionar</a>
+                    </div>
+
+                    <div class="pricing-card popular reveal delay-2">
+                        <div class="pricing-header">
+                            <h4>Nível 2 — Profissional</h4>
+                            <span class="diff">Dificuldade Média</span>
+                            <p class="price">Por apenas <span>R$ 280</span></p>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> 2 a 3 propostas criativas</li>
+                            <li><i class="fas fa-check"></i> Versões Horizontal/Vertical</li>
+                            <li><i class="fas fa-check"></i> Arquivos PNG, JPG e PDF</li>
+                            <li><i class="fas fa-check"></i> Versão Preto e Branco</li>
+                        </ul>
+                        <div class="pricing-note">
+                            *Valor altera com pesquisa de concorrência, mais de 4 revisões ou urgência.
+                        </div>
+                        <a href="https://wa.me/5584994940214?text=Ol%C3%A1%20J%C3%BAlia!%20Tenho%20interesse%20na%20Cria%C3%A7%C3%A3o%20de%20Logo%20N%C3%ADvel%202%20(Profissional)." target="_blank" class="btn-pricing">Selecionar</a>
+                    </div>
+
+                    <div class="pricing-card reveal delay-3">
+                        <div class="pricing-header">
+                            <h4>Nível 3 — Premium</h4>
+                            <span class="diff">Dificuldade Alta / Identidade Completa</span>
+                            <p class="price">Por apenas <span>R$ 550</span></p>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Estratégia de Posicionamento</li>
+                            <li><i class="fas fa-check"></i> 3 Conceitos Criativos</li>
+                            <li><i class="fas fa-check"></i> Paleta de Cores e Tipografia</li>
+                            <li><i class="fas fa-check"></i> Mini Manual da Marca</li>
+                            <li><i class="fas fa-check"></i> Todos os formatos (inc. SVG)</li>
+                        </ul>
+                        <a href="https://wa.me/5584994940214?text=Ol%C3%A1%20J%C3%BAlia!%20Tenho%20interesse%20na%20Cria%C3%A7%C3%A3o%20de%20Logo%20N%C3%ADvel%203%20(Premium)." target="_blank" class="btn-pricing">Selecionar</a>
+                    </div>
+                </div>
+
+                <h3 class="category-title reveal"><i class="fas fa-hashtag"></i> Redes Sociais</h3>
+                <div class="pricing-grid">
+                    <div class="pricing-card reveal delay-1">
+                        <div class="pricing-header">
+                            <h4>Post Simples</h4>
+                            <span class="diff">Dificuldade Baixa</span>
+                            <p class="price">Por arte <span>R$ 35</span></p>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Arte estática de alta qualidade</li>
+                            <li><i class="fas fa-check"></i> 1 revisão inclusa</li>
+                        </ul>
+                        <a href="https://wa.me/5584994940214?text=Ol%C3%A1%20J%C3%BAlia!%20Gostaria%20de%20fazer%20pedidos%20de%20Posts%20Simples%20para%20Redes%20Sociais." target="_blank" class="btn-pricing">Selecionar</a>
+                    </div>
+
+                    <div class="pricing-card popular reveal delay-2">
+                        <div class="pricing-header">
+                            <h4>Post Estratégico</h4>
+                            <span class="diff">Dificuldade Média</span>
+                            <p class="price">Por arte <span>R$ 60</span></p>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Design 100% personalizado</li>
+                            <li><i class="fas fa-check"></i> Criação de Copy Básica</li>
+                            <li><i class="fas fa-check"></i> Versão para Feed + Story</li>
+                            <li><i class="fas fa-check"></i> 2 revisões inclusas</li>
+                        </ul>
+                        <a href="https://wa.me/5584994940214?text=Ol%C3%A1%20J%C3%BAlia!%20Gostaria%20de%20fazer%20pedidos%20de%20Posts%20Estrat%C3%A9gicos." target="_blank" class="btn-pricing">Selecionar</a>
+                    </div>
+
+                    <div class="pricing-card reveal delay-3">
+                        <div class="pricing-header">
+                            <h4>Pacote Mensal</h4>
+                            <span class="diff">13 Posts Estratégicos</span>
+                            <p class="price">Mensalidade <span>R$ 450</span></p>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Planejamento visual mensal</li>
+                            <li><i class="fas fa-check"></i> Padronização de identidade</li>
+                            <li><i class="fas fa-check"></i> Criação de legendas estratégicas</li>
+                        </ul>
+                        <a href="https://wa.me/5584994940214?text=Ol%C3%A1%20J%C3%BAlia!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Pacote%20Mensal%20para%20Redes%20Sociais." target="_blank" class="btn-pricing">Selecionar</a>
+                    </div>
+                </div>
+
+                <h3 class="category-title reveal"><i class="fas fa-rocket"></i> Landing Pages</h3>
+                <div class="pricing-grid">
+                    <div class="pricing-card reveal delay-1">
+                        <div class="pricing-header">
+                            <h4>LP Simples</h4>
+                            <span class="diff">Dificuldade Média</span>
+                            <p class="price">A partir de <span>R$ 450</span></p>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> 1 Página de Destino</li>
+                            <li><i class="fas fa-check"></i> Layout Padrão</li>
+                            <li><i class="fas fa-check"></i> Botão integrado para WhatsApp</li>
+                            <li><i class="fas fa-check"></i> Responsivo (Mobile & Desktop)</li>
+                        </ul>
+                        <div class="pricing-note">
+                            *Aumenta se precisar de copy estratégica, integração com e-mail marketing ou design 100% exclusivo.
+                        </div>
+                        <a href="https://wa.me/5584994940214?text=Ol%C3%A1%20J%C3%BAlia!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20uma%20Landing%20Page%20Simples." target="_blank" class="btn-pricing">Selecionar</a>
+                    </div>
+
+                    <div class="pricing-card reveal delay-2">
+                        <div class="pricing-header">
+                            <h4>LP Estratégica</h4>
+                            <span class="diff">Dificuldade Alta (Alta Conversão)</span>
+                            <p class="price">Por apenas <span>R$ 900</span></p>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Design Exclusivo e Personalizado</li>
+                            <li><i class="fas fa-check"></i> Estrutura focada em Conversão</li>
+                            <li><i class="fas fa-check"></i> Formulário de Captação Integrado</li>
+                            <li><i class="fas fa-check"></i> Otimização SEO Básica</li>
+                        </ul>
+                        <a href="https://wa.me/5584994940214?text=Ol%C3%A1%20J%C3%BAlia!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20uma%20Landing%20Page%20Estrat%C3%A9gica." target="_blank" class="btn-pricing">Selecionar</a>
+                    </div>
+                </div>
+
+                <h3 class="category-title reveal"><i class="fas fa-laptop-code"></i> Sites & Lojas Virtuais</h3>
+                <div class="pricing-grid">
+                    <div class="pricing-card popular reveal delay-1">
+                        <div class="pricing-header">
+                            <h4>Site Básico</h4>
+                            <span class="diff">Até 3 páginas (Home, Sobre, Contato)</span>
+                            <p class="price">A partir de <span>R$ 900</span></p>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Design Responsivo</li>
+                            <li><i class="fas fa-check"></i> Navegação clara e objetiva</li>
+                            <li><i class="fas fa-check"></i> Ideal para presença digital</li>
+                        </ul>
+                        <div class="pricing-note">
+                            *Valor altera caso inclua Blog, Área Restrita ou integrações externas.
+                        </div>
+                        <a href="https://wa.me/5584994940214?text=Ol%C3%A1%20J%C3%BAlia!%20Tenho%20interesse%20no%20Site%20Institucional%20B%C3%A1sico." target="_blank" class="btn-pricing">Selecionar</a>
+                    </div>
+
+                    <div class="pricing-card reveal delay-2">
+                        <div class="pricing-header">
+                            <h4>Site Profissional</h4>
+                            <span class="diff">De 4 a 6 páginas completas</span>
+                            <p class="price">Por apenas <span>R$ 1.800</span></p>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Design 100% Exclusivo</li>
+                            <li><i class="fas fa-check"></i> SEO Básico Estrutural</li>
+                            <li><i class="fas fa-check"></i> Integrações (WhatsApp, Instagram)</li>
+                            <li><i class="fas fa-check"></i> Otimização de Performance (Velocidade)</li>
+                        </ul>
+                        <a href="https://wa.me/5584994940214?text=Ol%C3%A1%20J%C3%BAlia!%20Tenho%20interesse%20no%20Site%20Institucional%20Profissional." target="_blank" class="btn-pricing">Selecionar</a>
+                    </div>
+                </div>
+                
+                <div class="pricing-grid">
+                    <div class="pricing-card reveal delay-1">
+                        <div class="pricing-header">
+                            <h4>Loja Virtual Básica</h4>
+                            <span class="diff">E-commerce de Entrada</span>
+                            <p class="price">Por apenas <span>R$ 1.500</span></p>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Cadastro de até 10 Produtos</li>
+                            <li><i class="fas fa-check"></i> Integração com meios de Pagamento</li>
+                            <li><i class="fas fa-check"></i> Página padrão de produto</li>
+                        </ul>
+                        <a href="https://wa.me/5584994940214?text=Ol%C3%A1%20J%C3%BAlia!%20Gostaria%20de%20fazer%20uma%20Loja%20Virtual%20B%C3%A1sica." target="_blank" class="btn-pricing">Selecionar</a>
+                    </div>
+
+                    <div class="pricing-card reveal delay-2">
+                        <div class="pricing-header">
+                            <h4>Loja Profissional</h4>
+                            <span class="diff">E-commerce Escalável</span>
+                            <p class="price">Por apenas <span>R$ 3.000</span></p>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Produtos Ilimitados</li>
+                            <li><i class="fas fa-check"></i> Layout Personalizado</li>
+                            <li><i class="fas fa-check"></i> Automação Básica & SEO de Produtos</li>
+                            <li><i class="fas fa-check"></i> Treinamento de Gestão para o Cliente</li>
+                        </ul>
+                        <a href="https://wa.me/5584994940214?text=Ol%C3%A1%20J%C3%BAlia!%20Gostaria%20de%20fazer%20uma%20Loja%20Virtual%20Profissional." target="_blank" class="btn-pricing">Selecionar</a>
+                    </div>
+                </div>
+
+                <div class="extras-box reveal">
+                    <h4><i class="fas fa-plus-circle" style="color: var(--accent-glow); margin-right: 8px;"></i> Serviços Adicionais & Taxas Extras</h4>
+                    <div class="extras-list">
+                        <div class="extra-item">Urgência (até 48h) <span>+30% do valor</span></div>
+                        <div class="extra-item">Página Extra <span>+R$ 200</span></div>
+                        <div class="extra-item">Revisão Extra <span>R$ 40</span></div>
+                        <div class="extra-item">Manutenção Mensal <span>R$ 250/mês</span></div>
+                        <div class="extra-item">Configuração de Hospedagem <span>~ R$ 150</span></div>
+                    </div>
+                </div>
 
             </div>
         </section>
@@ -697,9 +1064,9 @@
             <div class="social-links">
                 <a href="mailto:juaelpe15@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
                 <a href="https://github.com/elloaaj15?tab=repositories" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/j%C3%BAlia-ello%C3%A1/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.linkedin.com/in/julia-elloa-1b868034b" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                 <a href="https://www.behance.net/juliaelloa" target="_blank" aria-label="Behance"><i class="fab fa-behance"></i></a>
-                <a href="https://www.instagram.com/elloaaj?igsh=ZmVrc3A3ZW95M2hw&utm_source=qr" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/elloaaj_?igsh=MTNlOGZqMTRkM3Aw" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             </div>
             
             <p style="font-size: 0.85rem; color: rgba(255,255,255,0.25); margin-top: 5rem; letter-spacing: 1px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 25px;">
@@ -756,7 +1123,6 @@
                 lightbox.classList.add('show');
                 document.body.style.overflow = 'hidden';
 
-                // Esconde as setas se a galeria tiver só 1 foto
                 if (currentGalleryGroup.length > 1) {
                     prevBtn.style.display = 'block';
                     nextBtn.style.display = 'block';
@@ -778,7 +1144,6 @@
             
             currentImageIndex += direction;
             
-            // Loop infinito (se passar da última, volta pra primeira)
             if (currentImageIndex >= currentGalleryGroup.length) {
                 currentImageIndex = 0;
             } else if (currentImageIndex < 0) {
@@ -788,31 +1153,24 @@
             lightboxImg.src = currentGalleryGroup[currentImageIndex];
         };
 
-        // Adiciona evento de clique em todas as imagens
         galleryImages.forEach(img => {
             img.addEventListener('click', function() {
-                // Acha a galeria (o projeto) que essa imagem pertence
                 const parentGallery = this.closest('.image-gallery');
-                // Pega todas as imagens DESSA galeria específica
-                const imagesInThisGallesry = Array.from(parentGallery.querySelectorAll('img')).map(img => img.src);
-                
+                const imagesInThisGallery = Array.from(parentGallery.querySelectorAll('img')).map(img => img.src);
                 openLightbox(this.src, imagesInThisGallery);
             });
         });
 
-        // Controles de clique
         closeBtn.addEventListener('click', closeLightboxModal);
         prevBtn.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox(-1); });
         nextBtn.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox(1); });
         
-        // Clicar fora da imagem para fechar
         lightbox.addEventListener('click', (e) => { 
             if (e.target !== lightboxImg && e.target !== prevBtn && e.target !== nextBtn) {
                 closeLightboxModal(); 
             }
         });
 
-        // Controles de Teclado
         document.addEventListener('keydown', (e) => { 
             if (!lightbox.classList.contains('show')) return;
             
@@ -823,7 +1181,6 @@
     </script>
 </body>
 </html>
-
 
 
 
